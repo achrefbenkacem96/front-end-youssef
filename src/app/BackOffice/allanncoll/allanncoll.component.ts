@@ -16,9 +16,9 @@ export class AllanncollComponent {
 
   newAnnouncementFormGroup!: FormGroup;
   allAnnouncements: AnnouncementCollocation[] = [];
-  favoritedAnnouncements: number[] = []; // Array to store IDs of favorited announcements
-  userId!: number; // Array to store IDs of favorited announcements
-  total_page!: number; // Array to store IDs of favorited announcements
+  favoritedAnnouncements: number[] = []; 
+  userId!: any;  
+  total_page!: number;  
   currentPage: number = 1;
   itemsPerPage: number = 3;
   feedbacks!: FeedBack[];
@@ -79,7 +79,7 @@ export class AllanncollComponent {
   ) { }
 
   ngOnInit(): void {
-    this.userId = 4
+    this.userId = localStorage.getItem('userId');
     this.collocationService.getAllAnnouncementsAndFavorisByUserId(this.userId).subscribe((data) => {
       // @ts-ignore
       this.allAnnouncements = data.filter((announce) => !announce.archive);

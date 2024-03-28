@@ -10,7 +10,8 @@ import { AnnouncementCollocation } from "../../entity/AnnouncementCollocation";
 export class FavorisComponent implements OnInit {
   favoris: AnnouncementCollocation[] = [];
   isPopoverOpen: boolean = false;
-  userId: Number = 4;
+  userId: any =    localStorage.getItem('userId');
+ 
   total_page!: number ; // Array to store IDs of favorited announcements
   currentPage: number = 1;
   itemsPerPage: number = 3;

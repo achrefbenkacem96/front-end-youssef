@@ -14,7 +14,7 @@ import { CollocationBooking } from 'src/app/entity/CollocationBooking';
   styleUrls: ['./announcement-collocation.component.css']
 })
 export class AnnouncementCollocationComponent {
-  userId!: number;
+  userId!: any;
   id!: any;
   loading : Boolean = false;
 
@@ -153,7 +153,7 @@ export class AnnouncementCollocationComponent {
   loadAnnouncement() {
     this.id = this.router.snapshot.paramMap.get('id');
 
-    this.userId = 4
+    this.userId = localStorage.getItem('userId');
     this.collocationService.getAnnouncementByIdAndUser(this.id, this.userId).subscribe((data) => {
       // @ts-ignore
       this.announcement = data;

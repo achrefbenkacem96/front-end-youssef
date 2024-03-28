@@ -18,7 +18,7 @@ export class AnncollbookingComponent {
   feedbackForm!:FormGroup;
   showModal:Boolean = false;
   collocationBookingId!:any;
-  userId!:Number;
+  userId!:any;
   id!:String | null  ;
 
   constructor(private fb: FormBuilder, private feedbackService: FeedbackService, private collocationBookingService: CollocationBookingService, private router: ActivatedRoute, private route: Router,) { }
@@ -28,7 +28,7 @@ export class AnncollbookingComponent {
       feed_Back: ['', Validators.required],
       rate: [null, Validators.required]
     });
-    this.userId = 4;
+    this.userId = localStorage.getItem('userId');
     this.id = this.router.snapshot.paramMap.get('id');
 
     this.collocationBookingService.getCollocationBookingsByAnnId(this.userId, this.id ).subscribe((data) => {

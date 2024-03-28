@@ -18,7 +18,7 @@ export class AddBookingcollComponent {
   
   newCollocationBookingFormGroup!: FormGroup;
   id: string | null = ""
-  userId!: Number ;
+  userId!: any ;
   announcementCollocation!: AnnouncementCollocation;
 
   constructor(private toastr: ToastrService,  private router: ActivatedRoute, private route: Router,
@@ -29,7 +29,7 @@ export class AddBookingcollComponent {
   ngOnInit(): void {
     this.initializeForm();
     this.id = this.router.snapshot.paramMap.get('id');
-    this.userId = 4
+    this.userId = localStorage.getItem('userId');
   }
 
   initializeForm(): void {

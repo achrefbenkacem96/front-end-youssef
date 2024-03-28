@@ -17,7 +17,7 @@ export class MyanncollComponent {
   newAnnouncementFormGroup!: FormGroup;
   allAnnouncements: AnnouncementCollocation[] = [];
   favoritedAnnouncements: number[] = []; // Array to store IDs of favorited announcements
-  userId!: number ; // Array to store IDs of favorited announcements
+  userId!: any ; // Array to store IDs of favorited announcements
   stars = [  {
       id: 1,
       icon: 'star',
@@ -55,7 +55,7 @@ export class MyanncollComponent {
   ) {}
 
   ngOnInit(): void {
-    this.userId = 4
+    this.userId =  localStorage.getItem('userId')
     this.collocationService.getAnnouncementsByUserId(this.userId ).subscribe((data) => {
       // @ts-ignore
       this.allAnnouncements = data;

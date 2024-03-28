@@ -14,7 +14,7 @@ export class AnncollarchiveComponent {
   newAnnouncementFormGroup!: FormGroup;
   allAnnouncements: AnnouncementCollocation[] = [];
   favoritedAnnouncements: number[] = []; // Array to store IDs of favorited announcements
-  userId!: number ; // Array to store IDs of favorited announcements
+  userId!: any ; // Array to store IDs of favorited announcements
   total_page!: number ; // Array to store IDs of favorited announcements
   currentPage: number = 1;
   itemsPerPage: number = 3;
@@ -55,7 +55,7 @@ slideConfig = {
   ) {}
 
   ngOnInit(): void {
-    this.userId = 4
+    this.userId = localStorage.getItem('userId');
     this.collocationService.getArchivedAnnouncementsByUserId(this.userId ).subscribe((data) => {
       // @ts-ignore
       this.allAnnouncements = data;

@@ -18,7 +18,7 @@ export class AllBookingcollComponent {
   feedbackForm!:FormGroup;
   showModal:Boolean = false;
   collocationBookingId!:any;
-  userId!:Number;
+  userId!:any;
   selectedRating = 0;
   Rating = 0;
   stars = [
@@ -61,7 +61,7 @@ export class AllBookingcollComponent {
       feed_Back: ['', Validators.required],
       rate: [this.selectedRating, Validators.required]
     });
-    this.userId = 4;
+    this.userId = localStorage.getItem('userId');;
     this.collocationBookingService.getCollocationBookingsById(this.userId).subscribe((data) => {
       // @ts-ignore
       this.allCollocationBookings = data;

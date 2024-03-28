@@ -1232,3 +1232,18 @@
   margin-bottom: 0;
   margin-left: auto;
 }
+
+.address {
+ 
+    max-width: 20ch !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+ 
+}
+td:hover .address {
+  max-width: 100% !important;
+  /* text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important; */
+}

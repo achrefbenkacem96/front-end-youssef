@@ -18,7 +18,7 @@ export class AddanncollComponent {
   image!: string;
   base64Data!: Int8Array;
   imageUrl: any;
-  userId!:Number;
+  userId!:any;
   imageUrls: string[] = [];
 
 
@@ -44,7 +44,7 @@ export class AddanncollComponent {
   handleSaveAnnouncement(): void {
     if (this.newAnnouncementFormGroup.valid && this.photo.length > 0) {
       const formData = new FormData();
-      this.userId = 4;
+      this.userId = localStorage.getItem('userId');;
   
       // Append each image to the form data
       this.photo.forEach(file => {
