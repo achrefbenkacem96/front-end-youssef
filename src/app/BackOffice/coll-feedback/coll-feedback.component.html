@@ -1,0 +1,31 @@
+<div class="container p-3">
+    <h2 class="text-center">Liste de toutes les feedBack</h2>
+  
+    <table class="table">
+      <thead>
+      <tr>
+        <th>id </th>
+        <th>feedBack</th>
+        <th>rate</th>
+         
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let feedBack of allFeedback">
+        <td>{{ feedBack.feedId }}</td>
+        <td>{{ feedBack.feed_Back }}</td>
+        <td>{{ feedBack.rate }}</td>
+        
+      
+      </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="allFeedback.length === 0">
+      <p>Aucune colocation n'est disponible pour le moment.</p>
+    </div>
+   
+ 
+    <!-- <button (click)="redirectToCreatefeedBack()">Créer une colocation</button> -->
+  </div>
+  

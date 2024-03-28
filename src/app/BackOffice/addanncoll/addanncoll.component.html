@@ -1,0 +1,76 @@
+<div class="container" >
+  <div class="card ">
+    <div class="card-header">Ajouter une Nouvelle Annonce de Colocation</div>
+    <div class="card-body">
+      <form [formGroup]="newAnnouncementFormGroup" (ngSubmit)="handleSaveAnnouncement()">
+        <div class="row">
+
+          <div class="mb-3 col-6">
+            <label class="form-label">superficie:</label>
+            <input type="number" formControlName="homeSize" class="form-control">
+            <span class="text-danger"
+                  *ngIf="newAnnouncementFormGroup.controls['homeSize'].touched
+                  && newAnnouncementFormGroup.controls['homeSize'].errors
+                  && newAnnouncementFormGroup.controls['homeSize'].errors!['required']">
+              La taille est requise
+            </span>
+          </div>
+          <div class="mb-3 col-6">
+            <label class="form-label">Nombre de Personnes:</label>
+            <input type="number" formControlName="numPerso" class="form-control">
+          </div>
+         
+          <div class="mb-3 col-6">
+            <label class="form-label">Adresse:</label>
+            <input type="text" formControlName="address" class="form-control">
+          </div>
+          <div class="mb-3 col-6">
+            <label class="form-label">Prix par Personne:</label>
+            <input type="number" formControlName="pricePerPerson" class="form-control">
+          </div>
+       
+        
+          <div class="mb-3 col-6">
+            <label class="form-label">Type de Maison:</label>
+            <div>
+              <input type="radio" id="villa" name="houseType" value="VILLA" formControlName="houseType" class="form-control" checked>
+              <label for="villa">VILLA</label>
+            </div>
+            <div>
+              <input type="radio" id="apartment" name="houseType" value="APARTMENT" formControlName="houseType" class="form-control">
+              <label for="apartment">APARTMENT</label>
+            </div>
+          </div>
+          <div class="mb-3 col-6">
+            <label class="form-label">Equipement:</label>
+            <div>
+              <input type="radio" id="meuble" name="equipmentType" value="MEUBLE" formControlName="equipmentType" class="form-control">
+              <label for="meuble">MEUBLE</label>
+            </div>
+            <div>
+              <input type="radio" id="non-meuble" name="equipmentType" value="NON_MEUBLE" formControlName="equipmentType" class="form-control">
+              <label for="non-meuble">NON MEUBLE</label>
+            </div>
+          </div>
+          <div class="mb-3 col-6">
+            <div *ngFor="let image of imageUrls; let i = index" class="d-flex justify-content-between align-items-center">
+              <div>
+                <img *ngIf="image" class="rounded-circle" [src]="image" alt="Uploaded Image" width="60" height="50">
+              </div>
+              <div>
+                <button type="button" class="btn btn-sm btn-danger" (click)="deleteImage(i)">Delete</button>
+              </div>
+            </div>
+            <div>
+              <input type="file" id="file" accept="image/*" multiple (change)="onFileChange($event)" aria-label="File browser example">
+            </div>
+          </div>
+          <div class=" col-6 ">
+            <!-- Ajouter d'autres champs au besoin en fonction des exigences -->
+            <button [disabled]="!newAnnouncementFormGroup.valid" class="btn btn-info w-100">Enregistrer</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

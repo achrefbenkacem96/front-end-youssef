@@ -1,0 +1,147 @@
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+  <!--Collapse button-->
+  <div class="container">
+    <a href="#" data-activates="mobile-menu" class="button-collapse right"><i class="fa fa-bars black-text"></i></a>
+
+    <!--Content for large and medium screens-->
+    <div class="navbar-desktop">
+      <!--Navbar Brand-->
+      <!--Links-->
+
+      <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
+
+        <li style="float:right;">
+          <img src="/assets/frontOffice/img/coexist1-removebg-preview.png" alt="Your Logo" height="50" width="150"
+            translate="yes" />
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#home">HOME <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#home">CARPOOLINGS <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-btn" >COLLOCATION</a>
+          <div class="dropdown-menu">
+            <a class="text-smaller"  [routerLink]="['/annColl/']">All COLLOCATION</a>
+            <a class="text-smaller" [routerLink]="['/anncollarchive/']">Archived Annoncement</a>
+            <a class="text-smaller" [routerLink]="['/myAnnColl/' ]">My Annoncement </a>
+            <a class="text-smaller" [routerLink]="['/booColl/' ]">My Booking</a>
+            
+            </div>
+        </li>
+        <!--  <h2> Dropdown</h2>
+   <div class="dropdown">
+	  <button class="dropdown-btn">Dropdown</button>
+	  <div class="dropdown-menu">
+		<a href="#">Link 1</a>
+		<a href="#">Link 2</a>
+		<a href="#">Link 3</a>
+	  </div>
+	</div>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" routerLink="/annColl" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            COLLOCATION
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#service">OUR EVENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#team">MARKETPLACE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">FORUM & CHAT ROOM</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#newsletter">LOG IN</a>
+
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/favoris">
+            Favoris
+          </a>
+        </li>
+
+        <li class="nav-item">
+
+        </li>
+        <li class="nav-item">
+
+        </li>
+        <li class="nav-item">
+
+        </li>
+        <li class="nav-item">
+
+        </li>
+
+      </ul>
+
+
+    </div>
+
+    <!-- Content for mobile devices-->
+    <div class="navbar-mobile">
+
+      <ul class="side-nav" id="mobile-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">CARPOOLINGS <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">COLLOCATION</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#service">OUR EVENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">MARKETPLACE</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="#!">
+
+            <div class="relative">
+              <p class="">Favoris</p>
+              <span class="absolute top-5 left-5">5</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#newsletter">LOGIN</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="#!">SIGN UP</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#!"><i class="fa fa-search fa-lg"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#home">
+            Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+
+        <!-- Include image here -->
+
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--/.Navbar-->
