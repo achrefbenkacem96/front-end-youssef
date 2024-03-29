@@ -70,10 +70,10 @@
             </div>
           </ngx-slick-carousel>
           <div class="estate-badges badges ">
-            <container-element [ngSwitch]="announcement.status">
+            <container-element [ngSwitch]="announcement.etat">
               <span class="green" *ngSwitchCase="'AVAILABLE'">Disponible</span>
-              <p class="red" *ngSwitchCase="'VALIDATED'">Réservé</p>
-              <p class="yellow" *ngSwitchCase="'ALREADY'">En Cours</p>
+              <p class="red" *ngSwitchCase="'BOOKED'">Réservé</p>
+              <p class="yellow" *ngSwitchCase="'IN_PROGRESS'">En Cours</p>
               <p class="green" *ngSwitchDefault>Disponible</p>
             </container-element>
           </div>

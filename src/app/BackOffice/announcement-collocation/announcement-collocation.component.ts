@@ -130,6 +130,7 @@ export class AnnouncementCollocationComponent {
 
   }
   private addCollocationBooking(collocationBooking: CollocationBooking, userId: Number): void {
+  console.log("🚀 ~ AnnouncementCollocationComponent ~ addCollocationBooking ~ collocationBooking:", collocationBooking)
 
     this.collocationBookingService.addCollocationBooking(collocationBooking, userId).subscribe({
       next: () => {

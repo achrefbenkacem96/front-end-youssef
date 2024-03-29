@@ -82,7 +82,7 @@ export class AllanncollComponent {
     this.userId = localStorage.getItem('userId');
     this.collocationService.getAllAnnouncementsAndFavorisByUserId(this.userId).subscribe((data) => {
       // @ts-ignore
-      this.allAnnouncements = data.filter((announce) => !announce.archive);
+      this.allAnnouncements = data.filter((announce) => !announce.archive && announce.userId != this.userId);
       console.log("🚀 ~ AllanncollComponent ~ this.collocationService.getAllAnnouncementsAndFavorisByUserId ~ this.allAnnouncements :", this.allAnnouncements)
       this.total_page = Math.ceil(this.allAnnouncements.length / this.itemsPerPage);
 

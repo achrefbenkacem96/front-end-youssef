@@ -73,7 +73,7 @@
       <div class="row ">
         <ng-container
           *ngFor="let annonce of allAnnouncements.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
-          <ng-container *ngIf="!annonce.archive || annonce.etat != 'NOT_AVAILABLE' ">
+          <ng-container *ngIf="!annonce.archive || annonce.etat != 'NOT_AVAILABLE'  ">
 
             <div class="col-md-4 col-12 col">
               <div class="estate-card">
