@@ -16,7 +16,7 @@
     <tbody>
     <tr *ngFor="let collocationBooking of allCollocationBookings">
       <td>{{ collocationBooking.annoncementCollocation.houseType }}</td>
-      <td><div class="address" >{{ collocationBooking.annoncementCollocation.address }}</div></td>
+      <td><div style=" text-wrap: balance; " >{{ collocationBooking.annoncementCollocation.address }}</div></td>
       <td>{{ collocationBooking.startDate | date:'short' }}</td>
       <td>{{ collocationBooking.endDate | date:'short' }}</td>
       <td>{{ collocationBooking.annoncementCollocation.pricePerPerson * collocationBooking.annoncementCollocation.numPerso }}</td>
