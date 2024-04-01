@@ -1,16 +1,16 @@
 <div class="container p-3">
     <div class="card p-3">
         <div class="main-allanncoll-list ">
-         
+
           <div class="row ">
             <ng-container  *ngFor="let annonce of allAnnouncements.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
               <ng-container  >
-    
+
                 <div class="col-md-4 col-12 col">
                   <div class="estate-card">
                     <ngx-slick-carousel class="carousel w-auto h-auto" #slickModal="slick-carousel" [config]="slideConfig"  style="border-radius: 20px; ">
                       <div ngxSlickItem *ngFor="let slide of annonce.images" class="slide">
-                        <img [src]="'data:'+slide.type+';base64,' + slide.data " alt="" width="100%">
+                        <img [src]="'data:'+slide.type+';base64,' + slide.data " alt=""  width="300" height="230">
                       </div>
                     </ngx-slick-carousel>
                     <div class="estate-badges badges ">
@@ -30,14 +30,14 @@
                         </ng-container>
                       </div>
                       <div class="estate-card-price">
-    
+
                         <div class="estate-card-current-price">
                           {{ annonce.pricePerPerson * annonce.numPerso }} DT
                         </div> <!---->
                         <div class="estate-card-user-buttons">
                           <img src="assets/frontOffice/img/icons/rooms.svg" alt="masque" width="20" height="20">
                           <span class="estate-card-subtitle"> {{ annonce.homeSize }} </span>
-    
+
                           <img src="assets/frontOffice/img/icons/profile.svg" alt="masque" width="20" height="20">
                           <span class="estate-card-subtitle"> {{ annonce.numPerso }} </span>
                           <img *ngIf="!annonce.favori" src="assets/frontOffice/img/icons/favorite.svg" alt="sauvegarde"
@@ -65,7 +65,7 @@
                           <!-- <div *ngIf="annonce.userId === userId" class="  d-flex justify-content-between ">
                               </div> -->
                           <div class="  d-flex  justify-content-between">
-          
+
                             <a *ngIf="annonce.userId == userId" class="btn btn-secondary"
                               (click)="handleArchiveAnnouncement(annonce)">{{annonce.archive ? "archived" : "Unarchived"}}</a>
                             <a class="btn btn-info" [routerLink]="['/anncollbooking/',annonce.annoncementCollocationId ]">suivi

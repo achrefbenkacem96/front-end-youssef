@@ -54,6 +54,10 @@ export class AllBookingcollComponent {
     }
 
   ];
+  currentPage: number = 1;
+  itemsPerPage: number = 2;
+  totalPages: number = 0;
+
   constructor(private fb: FormBuilder, private feedbackService: FeedbackService, private collocationBookingService: CollocationBookingService, private router: Router) { }
 
   ngOnInit(): void {
@@ -65,6 +69,8 @@ export class AllBookingcollComponent {
     this.collocationBookingService.getCollocationBookingsById(this.userId).subscribe((data) => {
       // @ts-ignore
       this.allCollocationBookings = data;
+      this.totalPages = Math.ceil(this.allCollocationBookings.length / this.itemsPerPage);
+
       console.log("🚀 ~ AllBookingcollComponent ~ this.collocationBookingService.getAllCollocationBookings ~ data:", data)
     });
   }
@@ -76,6 +82,15 @@ export class AllBookingcollComponent {
     return classObj;
 }
 
+onPageChange(pageNumber: number) {
+  this.currentPage = pageNumber;
+}
+
+getPaginatedCollocationBookings(): CollocationBooking[] {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  const endIndex = Math.min(startIndex + this.itemsPerPage, this.allCollocationBookings.length);
+  return this.allCollocationBookings.slice(startIndex, endIndex);
+}
   toggleHover(star: any) {
     star.hovered = !star.hovered;
 }
@@ -86,7 +101,7 @@ export class AllBookingcollComponent {
   handleDeleteCollocationBooking(collocationBooking: CollocationBooking) {
     let confirmation = confirm("Are you sure?");
     if (!confirmation) return;
-    
+
     this.collocationBookingService.deleteCollocationBooking(collocationBooking.idCollocationBooking).subscribe({
       next: (resp) => {
         // Supprimer l'élément du tableau
@@ -105,19 +120,19 @@ export class AllBookingcollComponent {
     this.showModal = true
     this.collocationBookingId = id
   }
-   
+
   onStateChange(event: Event, collocationBooking: CollocationBooking) {
     const selectedValue = (event.target as HTMLSelectElement).value;
     console.log('Selected state:', selectedValue);
-  
+
     // Convert the selected value to the corresponding enum value
     const statusType = getStatusTypeFromString(selectedValue);
-  
+
     if (statusType !== undefined) {
       console.log("🚀 ~ AllBookingcollComponent ~ onStateChange ~ statusType:", statusType)
       // Assign the enum value to the collocationBooking
       collocationBooking.statusType = statusType;
-  
+
       // Update the statusType of collocationBooking in your service
       this.collocationBookingService.UpdateStatusTypeCollocationBookings(collocationBooking.idCollocationBooking, this.userId,collocationBooking).subscribe((data) => {
         if (Array.isArray(data)) {
@@ -176,11 +191,11 @@ export class AllBookingcollComponent {
 
 
    }
- 
+
  }
 function getStatusTypeFromString(value: string): StatusType | undefined {
   switch (value) {
-    case 'Canceled':      
+    case 'Canceled':
       return StatusType.CANCELED;
     case 'Already':
       return StatusType.ALREADY;

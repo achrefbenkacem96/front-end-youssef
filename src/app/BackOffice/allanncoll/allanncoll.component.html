@@ -79,7 +79,7 @@
               <div class="estate-card">
                 <ngx-slick-carousel class="carousel w-auto h-auto" #slickModal="slick-carousel" [config]="slideConfig" style="border-radius: 20px; "  (click)="redirect_ann_page(annonce.annoncementCollocationId)">
                   <div ngxSlickItem *ngFor="let slide of annonce.images" class="slide">
-                    <img [src]="'data:'+slide.type+';base64,' + slide.data " alt="" width="100%">
+                    <img [src]="'data:'+slide.type+';base64,' + slide.data " alt="" width="300" height="230">
                   </div>
                 </ngx-slick-carousel>
                 <div class="estate-badges badges "  (click)="redirect_ann_page(annonce.annoncementCollocationId)">
@@ -129,19 +129,19 @@
                       </h4>
                     </div>
                   </div>
-                  <!-- <div class="estate-card-data"> 
+                  <!-- <div class="estate-card-data">
                     <div class="w-100">
                       <div class="  d-flex  justify-content-between">
 
-                      <button *ngIf="annonce.userId === userId" class="btn btn-secondary" (click)="handleArchiveAnnouncement(annonce)">{{annonce.archive ? "Unarchived" : "archived"}}</button> 
+                      <button *ngIf="annonce.userId === userId" class="btn btn-secondary" (click)="handleArchiveAnnouncement(annonce)">{{annonce.archive ? "Unarchived" : "archived"}}</button>
                         <a class="btn btn-success  "
                           [routerLink]="['/addBooColl/',annonce.annoncementCollocationId ]">Réserver</a>
                       </div>
                       <button class="btn btn-danger" (click)="showModal_Feedback(annonce.feedbackMap)">Feedback</button>
                       <div *ngIf="annonce.userId === userId" class="  d-flex justify-content-between ">
                       <button class="btn btn-primary  " (click)="updateComponent(annonce)">Modifier</button>
-                    </div>  
-                    </div>  
+                    </div>
+                    </div>
                   </div> -->
                 </div>
               </div>

@@ -14,14 +14,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let collocationBooking of allCollocationBookings">
+    <tr *ngFor="let collocationBooking of getPaginatedCollocationBookings()">
       <td>{{ collocationBooking.annoncementCollocation.houseType }}</td>
       <td><div style=" text-wrap: balance; " >{{ collocationBooking.annoncementCollocation.address }}</div></td>
       <td>{{ collocationBooking.startDate | date:'short' }}</td>
       <td>{{ collocationBooking.endDate | date:'short' }}</td>
       <td>{{ collocationBooking.annoncementCollocation.pricePerPerson * collocationBooking.annoncementCollocation.numPerso }}</td>
       <td>{{ collocationBooking.statusType }}</td>
-     
+
        <td>
         <div class="d-flex justify-content-between">
           <div class="">
@@ -39,7 +39,13 @@
   <div *ngIf="allCollocationBookings.length === 0">
     <p>Aucune colocation n'est disponible pour le moment.</p>
   </div>
- 
+ <!-- Pagination controls -->
+
+<div class="pagination-container">
+  <button class="pagination-button" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+  <span class="pagination-text">Page {{ currentPage }} of {{ totalPages }}</span>
+  <button class="pagination-button" (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+</div>
 <!-- Modal -->
 <!-- Button trigger modal -->
 <div class="modal" *ngIf="showModal === true"style="display: block;">
@@ -50,29 +56,29 @@
        </div>
        <form [formGroup]="feedbackForm" (submit)="submitFeedback()">
       <div class="modal-body">
-        
-        
+
+
           <div class="d-flex align-items-center">
             <div for="rateInput">Rate:</div>
             <div  class="product-review-stars" style="
             margin: 24px 0px 3px 12px;
         ">
 
-              <div  *ngFor="let star of stars" 
-              (mouseenter)="toggleHover(star)" 
+              <div  *ngFor="let star of stars"
+              (mouseenter)="toggleHover(star)"
               (mouseleave)="toggleHover(star)"
-              [ngClass]="getClassObject(star)" 
+              [ngClass]="getClassObject(star)"
               (click)="selectStar(star.id)">
                 <mat-icon>{{star.icon}}</mat-icon>
                 </div>
             </div>
-        
+
           </div>
           <div>
             <label for="feedBackInput">Your Feedback:</label>
             <textarea id="feedBackInput" formControlName="feed_Back" type="text" rows="5" cols="33" placeholder="Tapez vos commentaires ici..."></textarea>
-        
-        
+
+
             </div>
         </div>
         <div class="modal-footer">

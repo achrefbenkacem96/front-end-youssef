@@ -9,11 +9,11 @@
           <div class="estate-card">
             <ngx-slick-carousel class="carousel w-auto h-auto" #slickModal="slick-carousel" [config]="slideConfig" style="border-radius: 20px; ">
               <div ngxSlickItem *ngFor="let slide of annonce.images" class="slide">
-                <img [src]="'data:'+slide.type+';base64,' + slide.data " alt="" width="100%">
+                <img [src]="'data:'+slide.type+';base64,' + slide.data " alt=""  width="300" height="230">
               </div>
             </ngx-slick-carousel>
             <div class="estate-badges badges ">
-              
+
               <container-element [ngSwitch]="annonce.etat">
                 <span class="green" *ngSwitchCase="'AVAILABLE'">Disponible</span>
                 <p class="red" *ngSwitchCase="'BOOKED'">Réservé</p>
@@ -40,7 +40,7 @@
 
                   <img src="assets/frontOffice/img/icons/profile.svg" alt="masque" width="20" height="20">
                   <span class="estate-card-subtitle"> {{ annonce.numPerso }} </span>
-                 
+
                   <a *ngIf="annonce.favori" (click)="removeFavoris(annonce)">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                       <path style="fill: rgb(223, 3, 3);" fill="currentColor"
@@ -65,7 +65,7 @@
                     <a class="btn btn-success  " [routerLink]="['/annColl/',annonce.annoncementCollocationId ]">Réserver</a>
                     <a class="btn btn-danger" (click)="removeFavoris(annonce)">Supprimer</a>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
           </div>
